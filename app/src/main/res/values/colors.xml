@@ -8,5 +8,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="S800">#345A93</color>
+    <color name="s100">#EDFBFF</color>
+    <color name="s200">#DBF5FF</color>
+    <color name="s300">#C9EDFF</color>
+    <color name="s400">#BBE5FF</color>
+    <color name="s500">#A5D8FF</color>
+    <color name="s600">#78ABDB</color>
+    <color name="s700">#5380B7</color>
+    <color name="s800">#345A93</color>
+    <color name="s900">#1F3E7A</color>
+
+    <color name="accept_green">#78DD35</color>
+    <color name="discard_red">#931909</color>
+
+
+
 </resources>
