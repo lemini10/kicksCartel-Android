@@ -4,12 +4,39 @@ import android.os.Bundle
 import android.content.Context
 import android.graphics.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.kickscartel.fragments.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val browseFragment = BrowseFragment()
+        val favoritesFragment = favoritesFragment()
+        val searchFragment = SearchFragment()
+        val cartFragment = cartFragment()
+        val profileFragment = ProfileFragment()
+
+        makeCurrentFragment(browseFragment)
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.ic_home -> makeCurrentFragment(browseFragment)
+                R.id.ic_favorites -> makeCurrentFragment(favoritesFragment)
+                R.id.ic_search -> makeCurrentFragment(searchFragment)
+                R.id.ic_cart -> makeCurrentFragment(cartFragment)
+                R.id.ic_profile -> makeCurrentFragment(profileFragment)
+            }
+            true
+        }
+    }
+
+    private fun makeCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.ic_wrapper, fragment)
+            commit()
+        }
     }
 }
 

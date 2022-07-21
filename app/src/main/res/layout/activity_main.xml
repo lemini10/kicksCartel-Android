@@ -1,104 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-  <View
-      android:id="@+id/view2"
-      android:layout_width="412dp"
-      android:layout_height="341dp"
-      android:background="@color/s800"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.0" />
+    <FrameLayout
+        android:id="@+id/ic_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"/>
 
-  <ImageView
-      android:id="@+id/imageView"
-      android:layout_width="277dp"
-      android:layout_height="301dp"
-      android:background="@drawable/guava"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.492"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.3"
-      tools:srcCompat="@tools:sample/avatars" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@color/black"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/menu_nav"
+        />
 
-  <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="20dp"
-      android:text="Jordan"
-      app:layout_constraintStart_toStartOf="@+id/guideline2"
-      app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-  <TextView
-      android:id="@+id/textView2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="16dp"
-      android:text="Jordan 4 &quot;Guava Ice&quot;"
-      app:layout_constraintStart_toStartOf="@+id/guideline2"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-  <TextView
-      android:id="@+id/textView3"
-      android:layout_width="359dp"
-      android:layout_height="91dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="4dp"
-      android:text="'Guava Ice' delivers a vibrant take on the classic silhouette. The upper combines soft pink suede with breathable mesh on the collar and toe box. Semi translucent TU wings provide structural support, taking cues from an original Tinker Hatfield sketch."
-      app:layout_constraintBottom_toTopOf="@+id/guideline4"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="@+id/guideline2" />
-
-  <Button
-      android:id="@+id/button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="28dp"
-      android:layout_marginBottom="32dp"
-      android:text="Like"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <Button
-      android:id="@+id/button2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="68dp"
-      android:layout_marginBottom="32dp"
-      android:text="Add to cart"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent" />
-
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_begin="30dp" />
-
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      app:layout_constraintGuide_begin="422dp" />
-
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline4"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      app:layout_constraintGuide_begin="618dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
