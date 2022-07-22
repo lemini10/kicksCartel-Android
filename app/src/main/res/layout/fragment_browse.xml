@@ -22,4 +22,27 @@
         android:paddingHorizontal="15dp">
     </androidx.recyclerview.widget.RecyclerView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CATEGORIES"
+        android:textSize="30dp"
+        android:paddingBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POPULAR NOW"
+        android:textSize="30dp"
+        android:paddingBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LAST SEEN"
+        android:textSize="30dp"
+        android:paddingBottom="20dp"
+        />
 </LinearLayout>
