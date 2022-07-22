@@ -33,3 +33,8 @@ data class  BrowseCategoriesModel(
    var title: String
 ) {
 }
+
+enum class Categories {
+    Sneakers,Slides,Beanies,Shirt, Collectibles
+}
+
