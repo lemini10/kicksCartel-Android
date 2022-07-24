@@ -42,3 +42,7 @@ enum class Brands {
     Adidas,Yeezy,Nike,Jordan,Supreme,NewBalance
 }
 
+enum class ProfileOptions {
+    Information,Buying,Shipping,Payments,Tutorial
+}
+

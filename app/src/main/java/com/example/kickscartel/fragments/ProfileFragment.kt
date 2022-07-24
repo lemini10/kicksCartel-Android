@@ -5,17 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kickscartel.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.kickscartel.FetchedSneaker
+import com.example.kickscartel.ProfileOptions
+import com.example.kickscartel.adapters.LastSeenRecyclerViewAdapter
+import com.example.kickscartel.adapters.ProfileHandler
+import com.example.kickscartel.adapters.ProfileRecyclerAdapter
+import com.example.kickscartel.databinding.FragmentProfileBinding
 
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), ProfileHandler {
+
+    private var _binding : FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+    private var profileManagerLayout: RecyclerView.LayoutManager? = null
+    private var profileAdapter: RecyclerView.Adapter<ProfileRecyclerAdapter.ViewHolder>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        profileManagerLayout = LinearLayoutManager(this.context, RecyclerView.VERTICAL,false)
+        _binding = FragmentProfileBinding.inflate(inflater, container,false)
+        val root: View = binding.root
+        val profileRecyclerView = binding.profileRecycler
+        profileRecyclerView.layoutManager = profileManagerLayout
+        profileAdapter = ProfileRecyclerAdapter(this)
+        profileRecyclerView.adapter = profileAdapter
+
+        return root
+    }
+
+    override fun itemSelected(row: ProfileOptions) {
+        TODO("Not yet implemented")
     }
 
 }
