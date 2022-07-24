@@ -38,3 +38,7 @@ enum class Categories {
     Sneakers,Slides,Beanies,Shirt, Collectibles
 }
 
+enum class Brands {
+    Adidas,Yeezy,Nike,Jordan,Supreme,NewBalance
+}
+

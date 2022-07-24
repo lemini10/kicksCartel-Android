@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/rounded_corner_shape"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/black_to_white_gradient"
+                />
+
+            <ImageView
+                android:id="@+id/cart_card_image_shoe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/guava"
+                android:paddingTop="15dp"
+                />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cart_card_brand_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jordan"
+                android:textColor="@color/material_dynamic_neutral50"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/cart_card_complete_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nike Jordan 4 x Union LA Guava Ice"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:textAlignment="textStart"
+                tools:ignore="RtlCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cart_card_size_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 US"
+                    android:textColor="@color/material_dynamic_neutral50"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:textAlignment="textStart"
+                    tools:ignore="RtlCompat" />
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Eliminar"
+                        android:layout_alignParentRight="true"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

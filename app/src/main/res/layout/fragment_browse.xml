@@ -22,6 +22,7 @@
                 android:textSize="30dp"
                 android:paddingBottom="20dp"
                 />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/news_browse_recycler"
                 android:orientation="vertical"
@@ -56,6 +57,32 @@
                 android:paddingBottom="20dp"
                 />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trending_browse_recycler"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="15dp"
+                android:background="@drawable/rounded_corner_shape">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRANDS"
+                android:textSize="30dp"
+                android:paddingBottom="20dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/brands_browse_recycler"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="15dp"
+                android:background="@drawable/rounded_corner_shape">
+            </androidx.recyclerview.widget.RecyclerView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,6 +90,16 @@
                 android:textSize="30dp"
                 android:paddingBottom="20dp"
                 />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/last_seen_browse_recycler"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="15dp"
+                android:background="@drawable/rounded_corner_shape">
+            </androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
     </ScrollView>
 
