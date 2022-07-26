@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.kickscartel.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         val favoritesFragment = favoritesFragment()
         val searchFragment = SearchFragment()
         val cartFragment = cartFragment()
-        val profileFragment = ProfileFragment()
 
         makeCurrentFragment(browseFragment)
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
@@ -26,12 +28,21 @@ class MainActivity : AppCompatActivity() {
                 R.id.ic_favorites -> makeCurrentFragment(favoritesFragment)
                 R.id.ic_search -> makeCurrentFragment(searchFragment)
                 R.id.ic_cart -> makeCurrentFragment(cartFragment)
-                R.id.ic_profile -> makeCurrentFragment(profileFragment)
+                R.id.ic_profile -> makeProfileFragment()
             }
             true
         }
     }
 
+    private fun makeProfileFragment() {
+        val profileFragment = ProfileFragment()
+        val loginFragment = LoginFragment()
+        if (Firebase.auth.currentUser == null) {
+            makeCurrentFragment(loginFragment)
+        } else {
+            makeCurrentFragment(profileFragment)
+        }
+    }
     private fun makeCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.ic_wrapper, fragment)

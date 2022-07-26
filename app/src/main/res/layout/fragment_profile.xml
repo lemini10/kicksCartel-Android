@@ -5,46 +5,61 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="50dp">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/rounded_corner_shape"
-            android:layout_gravity="center"
-            android:paddingHorizontal="20dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/black_to_white_gradient"
-                />
-
-            <ImageView
-                android:id="@+id/cart_card_image_shoe"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/guava"
-                android:paddingTop="15dp"
-                />
-
-        </RelativeLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/profile_recycler"
-            android:orientation="vertical"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="20dp"
-            android:background="@drawable/rounded_corner_shape">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:paddingTop="50dp">
 
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/rounded_corner_shape"
+                android:layout_gravity="center"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/black_to_white_gradient"
+                    />
+
+                <ImageView
+                    android:id="@+id/cart_card_image_shoe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/guava"
+                    android:paddingTop="15dp"
+                    />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/profile_recycler"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:background="@drawable/rounded_corner_shape">
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_log_out_button"
+                android:text="logOut"
+                />
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

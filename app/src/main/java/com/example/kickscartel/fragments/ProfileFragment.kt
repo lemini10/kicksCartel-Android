@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kickscartel.FetchedSneaker
 import com.example.kickscartel.ProfileOptions
+import com.example.kickscartel.R
 import com.example.kickscartel.adapters.LastSeenRecyclerViewAdapter
 import com.example.kickscartel.adapters.ProfileHandler
 import com.example.kickscartel.adapters.ProfileRecyclerAdapter
 import com.example.kickscartel.databinding.FragmentProfileBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class ProfileFragment : Fragment(), ProfileHandler {
@@ -33,6 +36,12 @@ class ProfileFragment : Fragment(), ProfileHandler {
         profileRecyclerView.layoutManager = profileManagerLayout
         profileAdapter = ProfileRecyclerAdapter(this)
         profileRecyclerView.adapter = profileAdapter
+        binding.profileLogOutButton.setOnClickListener { view ->
+            Firebase.auth.signOut()
+            val loginFragment = LoginFragment()
+            val transaction =  fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.ic_wrapper, loginFragment)?.commit()
+        }
 
         return root
     }
