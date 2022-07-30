@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kickscartel.FetchedSneaker
-import com.example.kickscartel.ImageSet
+import com.example.kickscartel.*
 import com.example.kickscartel.adapters.LastSeenHandler
 import com.example.kickscartel.adapters.LastSeenRecyclerViewAdapter
 import com.example.kickscartel.databinding.FragmentCartBinding
@@ -19,9 +18,9 @@ class cartFragment : Fragment(), LastSeenHandler {
     private val binding get() = _binding!!
     private var cartManagerLayout: RecyclerView.LayoutManager? = null
     private var cartAdapter: RecyclerView.Adapter<LastSeenRecyclerViewAdapter.ViewHolder>? = null
-    val sneaker = FetchedSneaker("Jordan", "Guava", "Jordan 4 Guava Ice","180USD","Amazing super shoe",
-        ImageSet("","",""), "")
-    val cartSneakers = arrayOf(sneaker,sneaker,sneaker,sneaker)
+    private val dataManager = DataManager()
+
+    var cartSneakers: ArrayList<FetchedSneaker> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +31,11 @@ class cartFragment : Fragment(), LastSeenHandler {
         val root: View = binding.root
         val cartRecyclerView = binding.cartItemsRecycler
         cartRecyclerView.layoutManager = cartManagerLayout
-        cartAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = cartSneakers)
-        cartRecyclerView.adapter = cartAdapter
 
+        this.cartSneakers = dataManager.fetchUserSneakers(UserPreferences.Cart){
+            cartAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = this.cartSneakers)
+            cartRecyclerView.adapter = cartAdapter
+        }
         return root
     }
 

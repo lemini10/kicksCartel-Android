@@ -70,7 +70,7 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
 
         categoriesAdapter = CategoriesRecyclerAdapter(this)
         brandsAdapter = BrandsRecyclerAdapter(this)
-        lastSeenAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = sneakersSeen)
+        lastSeenAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = this.sneakersFetched)
 
         categoriesRecyclerView.adapter = categoriesAdapter
         brandsRecyclerView.adapter = brandsAdapter

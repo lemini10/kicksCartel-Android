@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class LastSeenRecyclerViewAdapter(val sneakerHandler: LastSeenHandler, val sneakersArray: Array<FetchedSneaker>): RecyclerView.Adapter<LastSeenRecyclerViewAdapter.ViewHolder>() {
+class LastSeenRecyclerViewAdapter(val sneakerHandler: LastSeenHandler, val sneakersArray: ArrayList<FetchedSneaker>): RecyclerView.Adapter<LastSeenRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LastSeenRecyclerViewAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.cart_card, parent, false)
