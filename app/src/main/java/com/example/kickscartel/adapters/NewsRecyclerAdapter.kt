@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NewsRecyclerAdapter(val newHandler: NewsHandler, val newsArray: Array<FetchedNews>): RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
+class NewsRecyclerAdapter(val newHandler: NewsHandler, val newsArray: ArrayList<FetchedNews>): RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsRecyclerAdapter.ViewHolder {

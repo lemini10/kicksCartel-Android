@@ -33,11 +33,13 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
     private var brandsAdapter: RecyclerView.Adapter<BrandsRecyclerAdapter.ViewHolder>? = null
     private var lastSeenAdapter: RecyclerView.Adapter<LastSeenRecyclerViewAdapter.ViewHolder>? = null
 
+    private val dataManager = DataManager()
+
     val new = FetchedNews("Adidas","Guava","Yeexy 350 Onyx releasing soon")
     val sneaker = FetchedSneaker("Jordan", "Guava", "Jordan 4 Guava Ice","180USD","Amazing super shoe",
         ImageSet("","",""), "")
-    val newsFetched = arrayOf(new,new,new,new,new,new)
-    val sneakersFetched = arrayOf(sneaker,sneaker,sneaker,sneaker)
+    var newsFetched: ArrayList<FetchedNews> = ArrayList()
+    var sneakersFetched: ArrayList<FetchedSneaker> = ArrayList()
     val sneakersSeen = arrayOf(sneaker,sneaker,sneaker,sneaker)
 
     override fun onCreateView(
@@ -66,17 +68,23 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
         brandsRecyclerView.layoutManager = brandsManagerLayout
         lastSeenRecyclerView.layoutManager = lastSeenManagerLayout
 
-        adapter = NewsRecyclerAdapter(newHandler = this,newsArray = newsFetched)
         categoriesAdapter = CategoriesRecyclerAdapter(this)
-        trendingAdapter = TrendingRecyclerAdapter(this,sneakersArray = sneakersFetched)
         brandsAdapter = BrandsRecyclerAdapter(this)
         lastSeenAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = sneakersSeen)
 
-        recyclerView.adapter = adapter
         categoriesRecyclerView.adapter = categoriesAdapter
-        trendingRecyclerView.adapter = trendingAdapter
         brandsRecyclerView.adapter = brandsAdapter
         lastSeenRecyclerView.adapter = lastSeenAdapter
+
+        this.newsFetched = dataManager.fetchNews {
+            adapter = NewsRecyclerAdapter(newHandler = this,newsArray = newsFetched)
+            recyclerView.adapter = adapter
+        }
+
+        this.sneakersFetched = dataManager.fetchSneakers {
+            trendingAdapter = TrendingRecyclerAdapter(this,sneakersArray = this.sneakersFetched)
+            trendingRecyclerView.adapter = trendingAdapter
+        }
 
         return root
     }

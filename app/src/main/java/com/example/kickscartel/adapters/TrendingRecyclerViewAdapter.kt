@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TrendingRecyclerAdapter(val sneakerHandler: TrendingHandler, val sneakersArray: Array<FetchedSneaker>): RecyclerView.Adapter<TrendingRecyclerAdapter.ViewHolder>() {
+class TrendingRecyclerAdapter(val sneakerHandler: TrendingHandler, val sneakersArray: ArrayList<FetchedSneaker>): RecyclerView.Adapter<TrendingRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingRecyclerAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
