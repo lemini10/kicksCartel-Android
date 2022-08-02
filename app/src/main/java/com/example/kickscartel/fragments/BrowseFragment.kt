@@ -1,6 +1,7 @@
 package com.example.kickscartel.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -90,22 +91,22 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
     }
 
     override fun newSelected(new: FetchedNews) {
-        TODO("Not yet implemented")
+        Log.d("Item selected","ITEMS SELECTED")
     }
 
     override fun categorieSelected(new: Categories) {
-        TODO("Not yet implemented")
+        Log.d("Item selected","ITEMS SELECTED")
     }
 
     override fun itemSelected(new: FetchedSneaker) {
-        TODO("Not yet implemented")
+        Log.d("Item selected","ITEMS SELECTED")
     }
 
     override fun brandSelected(brand: Brands) {
-        TODO("Not yet implemented")
+        Log.d("Item selected","ITEMS SELECTED")
     }
 
     override fun lastSeenSelected(itemSeen: FetchedSneaker) {
-        TODO("Not yet implemented")
+        Log.d("Item selected","ITEMS SELECTED")
     }
 }
