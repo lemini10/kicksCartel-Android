@@ -99,7 +99,9 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
     }
 
     override fun itemSelected(new: FetchedSneaker) {
-        Log.d("Item selected","ITEMS SELECTED")
+        val detailItemFragment = itemDetailFragment()
+        val transaction =  fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.ic_wrapper, detailItemFragment)?.commit()
     }
 
     override fun brandSelected(brand: Brands) {

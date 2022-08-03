@@ -1,10 +1,11 @@
-package com.example.kickscartel
+package com.example.kickscartel.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kickscartel.R
 
 class itemDetailFragment : Fragment() {
 

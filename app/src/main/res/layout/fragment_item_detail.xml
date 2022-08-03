@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".itemDetailFragment">
+    tools:context=".fragments.itemDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/black_to_white_gradient"
+                    />
+
+                <ImageView
+                    android:id="@+id/item_detail_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/guava"
+                    android:paddingTop="15dp"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/item_detail_back_button"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/ic_baseline_arrow_back_24"/>
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/item_detail_share_button"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ic_baseline_share_24"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_item_brand_text"
+                android:text="BRAND"
+                android:textSize="35dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_item_complete_text"
+                android:text="COMPLETE NAME LONG STRING EXPECTED"
+                android:textSize="45dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_item_details_text"
+                android:text="DETAILS LONG LONG LONG LONG STRING EXPECTED MAYBE EVEN A COMPLETE PARAGRAPH"
+                android:textSize="25dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="30dp">
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/item_detail_add_cart_button"
+                    android:layout_alignParentRight="true"
+                    android:text="Add to cart"/>
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/item_detail_favorites_button"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/ic_baseline_thumb_up_alt_24"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
