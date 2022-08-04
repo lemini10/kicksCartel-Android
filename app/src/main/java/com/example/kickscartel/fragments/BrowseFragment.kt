@@ -100,6 +100,7 @@ class BrowseFragment : Fragment(), NewsHandler, CategoriesHandler, TrendingHandl
 
     override fun itemSelected(new: FetchedSneaker) {
         val detailItemFragment = itemDetailFragment()
+        detailItemFragment.sneaker = new
         val transaction =  fragmentManager?.beginTransaction()
         transaction?.replace(R.id.ic_wrapper, detailItemFragment)?.commit()
     }

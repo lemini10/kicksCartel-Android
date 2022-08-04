@@ -1,15 +1,16 @@
 package com.example.kickscartel
 
 import android.media.Image
+import java.io.Serializable
 
-data class FetchedSneaker(
+data class FetchedSneaker (
     var brand: String,
     var sneakerImage: String,
     var completeName: String,
     var price: String,
     var description: String,
     var imageSet: ImageSet,
-    var size: String?) {
+    var size: String?): Serializable {
     val id: String
         get() = this.completeName + (this.size)
 }
