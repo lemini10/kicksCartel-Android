@@ -73,16 +73,18 @@ class DataManager {
         return fetchedSneaker
     }
 
-    fun add(sneaker: FetchedSneaker, to: UserPreferences, completion: () -> Unit) {
+    fun add(sneaker: FetchedSneaker, to: UserPreferences, completion: () -> Unit, completionFailure: () -> Unit) {
         val userID = Firebase.auth.currentUser
         if (userID != null) {
-            database.child("users").child(userID.toString()).child(to.raw).child(sneaker.id).setValue(sneaker)
+            database.child("users").child(userID.uid).child(to.raw).child(sneaker.id).setValue(sneaker)
                 .addOnSuccessListener {
                 completion()
             }
                 .addOnFailureListener {
                     Log.d("EXCEPTION➡️", it.toString())
                 }
+        } else {
+            completionFailure()
         }
     }
 
