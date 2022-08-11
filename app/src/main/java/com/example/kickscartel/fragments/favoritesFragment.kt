@@ -34,7 +34,7 @@ class favoritesFragment : Fragment(), LastSeenHandler {
         val favoritesRecyclerView = binding.favoritesItemsRecycler
         favoritesRecyclerView.layoutManager = favoritesManagerLayout
 
-        this.favoritesSneakers = dataManager.fetchUserSneakers(UserPreferences.Cart){
+        this.favoritesSneakers = dataManager.fetchUserSneakers(UserPreferences.Favorites){
             favoritesAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = favoritesSneakers)
             favoritesRecyclerView.adapter = favoritesAdapter
         }

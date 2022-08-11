@@ -33,6 +33,11 @@ class itemDetailFragment() : Fragment() {
         binding.detailItemCompleteText.text = sneaker.completeName
         binding.detailItemDetailsText.text = sneaker.description
         binding.itemDetailImage.setImageResource(R.drawable.guava)
+        binding.itemDetailBackButton.setOnClickListener {
+            val browseFragment = BrowseFragment()
+            val transaction =  fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.ic_wrapper, browseFragment)?.commit()
+        }
         binding.itemDetailFavoritesButton.setOnClickListener {
             dataManager.add(sneaker,UserPreferences.Favorites,{
                 Toast.makeText(this@itemDetailFragment.requireActivity(), "Item added to favorites", Toast.LENGTH_SHORT).show()

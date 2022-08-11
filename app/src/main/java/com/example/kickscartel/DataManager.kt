@@ -56,7 +56,7 @@ class DataManager {
         var fetchedSneaker = ArrayList<FetchedSneaker>()
         val userID = Firebase.auth.currentUser
         if (userID != null) {
-                database.child("users").child(userID.toString()).child(savedIn.raw).get().addOnSuccessListener {
+                database.child("users").child(userID.uid).child(savedIn.raw).get().addOnSuccessListener {
                     val sneakers = it.value as Map<String, FetchedSneaker>
                     val gson = Gson()
                     val json = Gson().toJson(sneakers)
