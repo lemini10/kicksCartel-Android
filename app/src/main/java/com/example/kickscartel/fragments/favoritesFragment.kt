@@ -38,7 +38,6 @@ class favoritesFragment : Fragment(), LastSeenHandler {
             favoritesAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = favoritesSneakers)
             favoritesRecyclerView.adapter = favoritesAdapter
         }
-
         return root
     }
 
