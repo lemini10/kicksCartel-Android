@@ -32,6 +32,7 @@ class cartFragment : Fragment(), LastSeenHandler {
         val cartRecyclerView = binding.cartItemsRecycler
         cartRecyclerView.layoutManager = cartManagerLayout
 
+
         this.cartSneakers = dataManager.fetchUserSneakers(UserPreferences.Cart){
             cartAdapter = LastSeenRecyclerViewAdapter(this,sneakersArray = this.cartSneakers)
             cartRecyclerView.adapter = cartAdapter
@@ -40,6 +41,9 @@ class cartFragment : Fragment(), LastSeenHandler {
     }
 
     override fun lastSeenSelected(itemSeen: FetchedSneaker) {
-        TODO("Not yet implemented")
+        val detailItemFragment = itemDetailFragment()
+        detailItemFragment.sneaker = itemSeen
+        val transaction =  fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.ic_wrapper, detailItemFragment)?.commit()
     }
 }

@@ -33,12 +33,12 @@ class SearchRecyclerAdapter(val newHandler: ItemHandler, val sneakers: ArrayList
 
             itemView.setOnClickListener{
                 val position: Int = adapterPosition
-                newHandler.itemSelected(sneakers[position].id)
+                newHandler.itemSelected(sneakers[position])
             }
         }
     }
 }
 
 interface ItemHandler {
-    fun itemSelected(item: String)
+    fun itemSelected(item: FetchedSneaker)
 }

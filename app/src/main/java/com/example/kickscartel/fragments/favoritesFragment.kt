@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kickscartel.DataManager
-import com.example.kickscartel.FetchedSneaker
-import com.example.kickscartel.ImageSet
-import com.example.kickscartel.UserPreferences
+import com.example.kickscartel.*
 import com.example.kickscartel.adapters.LastSeenHandler
 import com.example.kickscartel.adapters.LastSeenRecyclerViewAdapter
 import com.example.kickscartel.databinding.FragmentFavoritesBinding
@@ -42,6 +39,9 @@ class favoritesFragment : Fragment(), LastSeenHandler {
     }
 
     override fun lastSeenSelected(itemSeen: FetchedSneaker) {
-        TODO("Not yet implemented")
+        val detailItemFragment = itemDetailFragment()
+        detailItemFragment.sneaker = itemSeen
+        val transaction =  fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.ic_wrapper, detailItemFragment)?.commit()
     }
 }

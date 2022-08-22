@@ -2,7 +2,6 @@ package com.example.kickscartel.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,10 +12,10 @@ import com.example.kickscartel.TrendingRecyclerAdapter
 import com.example.kickscartel.adapters.ItemHandler
 import com.example.kickscartel.adapters.ProfileRecyclerAdapter
 import com.example.kickscartel.adapters.SearchRecyclerAdapter
-import com.example.kickscartel.databinding.FragmentProfileBinding
 import com.example.kickscartel.databinding.FragmentSearchBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import androidx.appcompat.widget.SearchView
 
 class SearchFragment : Fragment(), ItemHandler {
 
@@ -45,6 +44,7 @@ class SearchFragment : Fragment(), ItemHandler {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.search, menu)
         val searchItem = menu.findItem(R.menu.search)
         val profileRecyclerView = binding.searchRecyclerView
@@ -70,10 +70,13 @@ class SearchFragment : Fragment(), ItemHandler {
                 }
             })
         }
-        super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun itemSelected(item: String) {
+    override fun itemSelected(item: FetchedSneaker) {
+        val detailItemFragment = itemDetailFragment()
+        detailItemFragment.sneaker = item
+        val transaction =  fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.ic_wrapper, detailItemFragment)?.commit()
     }
 
 }
